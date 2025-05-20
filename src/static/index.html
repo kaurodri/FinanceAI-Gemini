@@ -1,0 +1,37 @@
+<script>
+  const streamlitDoc = window.parent.document;
+  const buttons = Array.from(streamlitDoc.querySelectorAll(".stButton > button"));
+  const buttonTeste = buttons.find((el) => el.innerText === "Iniciar o teste");
+
+  function estilizarBotao(botao, corNormal, corPressionado, corHover) {
+    if (!botao) return;
+
+    botao.style.backgroundColor = corNormal;
+    botao.style.borderColor = corNormal;
+    botao.style.transition = "background-color 0.2s ease";
+
+    botao.onmousedown = () => {
+      botao.style.backgroundColor = corPressionado;
+    };
+
+    botao.onmouseup = () => {
+      botao.style.backgroundColor = corHover;
+    };
+
+    botao.onmouseover = () => {
+      botao.style.backgroundColor = corHover;
+      botao.style.color = "white";
+    };
+
+    botao.onmouseout = () => {
+      botao.style.backgroundColor = corNormal;
+      botao.style.color = "white";
+    };
+
+    botao.onmouseleave = () => {
+      botao.style.backgroundColor = corNormal;
+    };
+  }
+
+  estilizarBotao(buttonTeste, "#f08671", "#ff7155", "#0e1117");
+</script>
