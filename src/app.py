@@ -16,6 +16,9 @@ def main():
         layout="centered",
     )
 
+    with open("./src/static/index.css") as f:
+        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+
     questions = [
         "Como você se sente em relação a investimentos com retorno demorado?",
         "Qual sua reação a possíveis perdas temporárias em seus investimentos?",
@@ -38,10 +41,27 @@ def main():
 
     col1, col2 = st.columns([1, 7])
     with col2:
-        st.markdown("<h1 style='color: #f08671;'>Descubra seu Perfil de Investimento</h1>", unsafe_allow_html=True)
+        st.markdown("<h1>Descubra seu Perfil de Investimento</h1>", unsafe_allow_html=True)
+        #st.title("Descubra seu Perfil de Investimento", anchor="meu-titulo") 
     with col1:
         st.markdown("<div style='margin-top: 30px;'></div>", unsafe_allow_html=True)
-        st.markdown("<h1 style='color: #f08671;'>💰</h1>", unsafe_allow_html=True)
+        st.markdown(
+        """
+        <svg xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            stroke-linecap="round" 
+            stroke-linejoin="round" 
+            class="landmark">
+            <path d="M10 18v-7"/>
+            <path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/>
+            <path d="M14 18v-7"/>
+            <path d="M18 18v-7"/>
+            <path d="M3 22h18"/>
+            <path d="M6 18v-7"/>
+        </svg>
+        """, unsafe_allow_html=True)
     st.markdown(
     f"Responda a algumas perguntas rápidas e descubra, **com o apoio da Inteligência Artificial**, qual o seu **perfil de investimento**. O teste é composto por **{len(questions)} perguntas** e pode ser realizado quantas vezes você quiser! **Vamos começar?**")
     st.write("")
@@ -68,12 +88,20 @@ def main():
             
             col1, col2, col3, col4, col5 = st.columns(5)
             
-            options = {
+            options1 = {
                 "Detesto": ":material/sentiment_sad:",
                 "Prefiro evitar": ":material/sentiment_dissatisfied:",
                 "Indiferente": ":material/sentiment_neutral:",
                 "Gosto": ":material/sentiment_satisfied:",
                 "Amo": ":material/sentiment_very_satisfied:"
+            }
+
+            options = {
+                "Detesto": "",
+                "Prefiro evitar": "",
+                "Indiferente": "",
+                "Gosto": "",
+                "Amo": ""
             }
             
             selected = None

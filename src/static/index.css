@@ -1,0 +1,27 @@
+@import url("https://api.fontshare.com/v2/css?f[]=switzer@400&display=swap");
+/* https://www.fontshare.com/fonts/switzer */
+
+:root {
+  --azul-principal: #3498db;
+  --padding-padrao: 16px;
+
+  --texto-base: #FBFAFC;
+  --preto-escala-x500: #1F1F1F;
+}
+
+* {
+    font-family: 'Switzer', sans-serif !important;
+}
+
+.stMain {
+    background-color: var(--preto-escala-x500);
+    color: var(--texto-base);
+}
+
+.stAppHeader {
+    visibility: hidden;
+}
+
+.landmark {
+    color: var(--texto-base);
+}
